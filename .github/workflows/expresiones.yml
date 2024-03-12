@@ -1,0 +1,33 @@
+name: Hola mundo con expresiones
+run-name: Realizando un hola mundo workflow con expresiones
+on: 
+  workflow_dispatch:
+    inputs:
+      age:
+        description: 'Age'
+        required: true
+        default: 16
+        type: integer
+      name:
+        description: 'name'
+        required: true
+        default: 'sochoa'
+        type: string
+jobs:
+  trying-jobs-withif:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 17
+      - name: Correr script
+        run: node hola.js
+      - name: Runs if overage
+        if: ${{ inputs.age >= 18 }}
+        run: echo "Esto se ejecutó por que es mayor de edad con ${{ inputs.age }} años"
+      - name: Runs if overage
+        if: ${{ contains(inputs.name, 'ochoa') }}
+        run: echo "${{ inputs.name }} estaba presente"
