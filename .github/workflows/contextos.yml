@@ -14,4 +14,4 @@ jobs:
       - name: Correr script
         run: node hola.js
       - name: Branch data
-        run: echo "Esta es la rama po = ${{ $GITHUB_REF }}"
+        run: echo "Esta es la rama po = $GITHUB_REF"
