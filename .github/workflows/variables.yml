@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: env data
-        run: echo "Imprimiendo la var = $NOMBRE_ENV_PRO $SIUU"
+        run: echo "Imprimiendo la var = $NOMBRE_ENV_PRO ${{ env.SIUU }}"
         env:
-          SIUU: SIUUU
+          SIUU: SIUUUUU
+      - name: La contra
+        run: echo "La contraseña es esta: ${{ secrets.SECRETO_PRO}}"
