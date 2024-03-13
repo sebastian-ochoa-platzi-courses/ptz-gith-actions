@@ -1,0 +1,15 @@
+name: Hola mundo con variables
+run-name: Realizando un hola mundo workflow con variables
+on: [push]
+env:
+  NOMBRE_ENV_PRO: "Nombre pro de la variable"
+jobs:
+  trying-var-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: env data
+        run: echo "Imprimiendo la var = $NOMBRE_ENV_PRO ${{ env.SIUU }}"
+        env:
+          SIUU: SIUUUUU
+      - name: La contra
+        run: echo "La contraseña es esta= ${{ secrets.SECRETO_PRO }}"

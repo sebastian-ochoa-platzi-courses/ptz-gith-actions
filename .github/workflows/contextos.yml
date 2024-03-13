@@ -1,0 +1,17 @@
+name: Hola mundo con contextos
+run-name: Realizando un hola mundo workflow con contextos
+on: [push]
+jobs:
+  trying-conx-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 17
+      - name: Correr script
+        run: node hola.js
+      - name: Branch data
+        run: echo "Esta es la rama po = $GITHUB_REF"
