@@ -12,4 +12,4 @@ jobs:
         env:
           SIUU: SIUUUUU
       - name: La contra
-        run: echo "La contraseña es esta= ${{ secrets.SECRETO_PRO}}"
+        run: echo "La contraseña es esta= ${{ secrets.SECRETO_PRO }}"
